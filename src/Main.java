@@ -26,7 +26,10 @@ public class Main {
                 listWordWithFrequency.add(new Word(word, 1));
             }
         }
-        listWordWithFrequency = listWordWithFrequency.stream().sorted(Comparator.comparingInt(Word::getFrequency).reversed().thenComparing(Word::getWord)).collect(Collectors.toList());
+        // sort list
+        listWordWithFrequency = listWordWithFrequency.stream().sorted(Comparator.comparingInt(Word::getFrequency).reversed()
+                .thenComparing(Word::getWord))
+                .collect(Collectors.toList());
         return listWordWithFrequency.subList(0, size);
     }
 }
